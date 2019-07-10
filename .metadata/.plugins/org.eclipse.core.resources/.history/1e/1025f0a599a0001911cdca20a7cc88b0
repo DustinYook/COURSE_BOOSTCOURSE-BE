@@ -1,0 +1,9 @@
+package kr.or.connect.guestbook.service.impl;
+
+public class GuestbookServiceTest 
+{
+	public static void main(String[] args) 
+	{
+
+	}
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Spring 컨테이너가 대신 생성할 Bean에 대한 정보 : Bean을 등록 -->
+	<bean id="userBean" class="kr.or.connect.diexam01.UserBean"/>
+	
+	<!-- Engine Bean 등록 -->
+	<bean id="e" class="kr.or.connect.diexam01.Engine"/> 
+	<!-- Car Bean 등록 -->
+	<bean id="c" class="kr.or.connect.diexam01.Car">
+		<!-- Car안의 Engine객체를 인스턴스화 하기 위한 설정  -->
+		<property name="engine" ref="e"></property> <!-- 중요) property는 getter, setter다! -->
+		<!-- ref는 참조할 Bean의 id를 쓴다. Engine Bean의 id는 e이므로 e를 ref의 값으로 설정 -->
+		<!-- public void setEngine(Engine e) { this.v8 = e; }와 동일한 의미이다-->
+	</bean>
+</beans>

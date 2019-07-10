@@ -1,0 +1,14 @@
+package kr.or.connect.guestbook.dao;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class GuestbookDaoTest 
+{
+	public static void main(String[] args)
+	{
+		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationContext.class); // 스프링 컨테이너 생성
+		GuestbookDao guestbookDao = ac.getBean(GuestbookDao.class); // Bean받아옴
+		
+	}
+}

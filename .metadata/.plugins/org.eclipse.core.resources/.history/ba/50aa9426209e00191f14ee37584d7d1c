@@ -1,0 +1,12 @@
+package kr.or.connect.daoexam.main;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class DataSourceTest 
+{
+	public static void main(String[] args) 
+	{
+		ApplicationContext ac = new AnnotationConfigApplicationContext(Application.class);
+	}
+}

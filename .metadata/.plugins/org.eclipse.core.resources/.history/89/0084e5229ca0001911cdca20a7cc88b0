@@ -1,0 +1,13 @@
+package kr.or.connect.guestbook.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import kr.or.connect.guestbook.service.GuestbookService;
+
+@Controller
+public class GuestbookController 
+{
+	@Autowired
+	GuestbookService guestbookService;
+}

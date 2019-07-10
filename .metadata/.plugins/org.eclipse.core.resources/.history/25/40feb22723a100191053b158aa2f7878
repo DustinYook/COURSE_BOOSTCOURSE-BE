@@ -1,0 +1,11 @@
+package kr.or.connect.guestbook.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController // RestController임을 알림
+@RequestMapping(path = "/guestbooks") // 같은 매핑으로 내부에 있는 여러개 사용
+public class GuestbookApiController 
+{
+
+}

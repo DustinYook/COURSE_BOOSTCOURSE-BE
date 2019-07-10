@@ -1,0 +1,73 @@
+package kr.or.connect.guestbook.controller;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import kr.or.connect.guestbook.dto.Guestbook;
+import kr.or.connect.guestbook.service.GuestbookService;
+
+@RestController // RestController임을 알림
+@RequestMapping(path = "/guestbooks") // 같은 매핑으로 내부에 있는 여러개 사용
+public class GuestbookApiController 
+{
+	@Autowired
+	GuestbookService guestbookService;
+	
+	// GET방식 요청들어올 때 처리
+	@GetMapping // path가 없는 이유 : 위의 @RequestMapping에서 기지정 했기 때문
+	public Map<String, Object> list(@RequestParam(name="start", required=false, defaultValue="0") int start) 
+	{
+		// application/json 요청이기 때문에 DispatcherServlet은 내부적으로 jsonMessageConvert를 사용 
+		// 해당 Map객체를 json으로 변환시켜 반환
+		List<Guestbook> list = guestbookService.getGuestbooks(start);
+		
+		int count = guestbookService.getCount();
+		int pageCount = count / GuestbookService.LIMIT;
+		if(count % GuestbookService.LIMIT > 0)
+			pageCount++;
+		
+		List<Integer> pageStartList = new ArrayList<>();
+		for(int i = 0; i < pageCount; i++) 
+			pageStartList.add(i * GuestbookService.LIMIT);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("list", list);
+		map.put("count", count);
+		map.put("pageStartList", pageStartList);
+		
+		return map;
+	}
+	
+	@PostMapping // POST로 요청이 들어올 때 처리
+	public Guestbook write(@RequestBody Guestbook guestbook, HttpServletRequest request) 
+	{
+		String clientIp = request.getRemoteAddr();
+		// id가 입력된 guestbook이 반환
+		Guestbook resultGuestbook = guestbookService.addGuestbook(guestbook, clientIp);
+		return resultGuestbook;
+	}
+	
+	@DeleteMapping("/{id}") // '/guestbooks/{id}'로 요청이 옴
+	public Map<String, String> delete(@PathVariable(name="id") Long id, HttpServletRequest request) 
+	{
+		// @PathVariable로 값을 읽어들임
+		String clientIp = request.getRemoteAddr();
+		int deleteCount = guestbookService.deleteGuestbook(id, clientIp);
+		return Collections.singletonMap("success", deleteCount > 0 ? "true" : "false");
+	}
+}

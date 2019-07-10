@@ -1,0 +1,10 @@
+package kr.or.connect.daoexam.main;
+
+public class DataSourceTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

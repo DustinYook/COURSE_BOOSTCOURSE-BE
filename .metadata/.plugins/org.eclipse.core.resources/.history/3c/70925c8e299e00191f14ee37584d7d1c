@@ -1,0 +1,16 @@
+package kr.or.connect.daoexam.main;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import kr.or.connect.daoexam.config.ApplicationConfig;
+import kr.or.connect.daoexam.dao.RoleDao;
+
+public class JdbcTest 
+{
+	public static void main(String[] args) 
+	{
+		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class); // 스프링 컨테이너 생성
+		RoleDao roleDao = ac.getBean(RoleDao.class); // 컨테이너로부터 Bean받아옴
+	}
+}

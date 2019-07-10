@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\aomor\eclipse_ee\WebProject"/>
+		<item value="C:\Users\aomor\eclipse_ee\firstWeb"/>
+		<item value="C:\Users\aomor\eclipse_ee\exam31"/>
+		<item value="C:\Users\aomor\eclipse_ee\exam25"/>
+		<item value="C:\Users\aomor\OneDrive\Desktop\백업관리\WebProject"/>
+	</list>
+	<section name="ResourceNavigator">
+		<item key="ResourceViewer.STORE_SORT_TYPE" value="1"/>
+		<item key="ResourceWorkingSetFilter.STORE_WORKING_SET" value="Aggregate for window 1561805285329"/>
+	</section>
+	<section name="CleanDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="630"/>
+		<item key="DIALOG_Y_ORIGIN" value="205"/>
+		<item key="DIALOG_WIDTH" value="660"/>
+		<item key="DIALOG_HEIGHT" value="466"/>
+		<item key="TOGGLE_SELECTED" value="false"/>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+</section>

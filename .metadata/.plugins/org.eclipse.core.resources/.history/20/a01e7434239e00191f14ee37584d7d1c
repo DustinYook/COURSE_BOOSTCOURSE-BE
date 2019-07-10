@@ -1,0 +1,5 @@
+package kr.or.connect.daoexam.dao;
+
+public class RoleDao {
+
+}

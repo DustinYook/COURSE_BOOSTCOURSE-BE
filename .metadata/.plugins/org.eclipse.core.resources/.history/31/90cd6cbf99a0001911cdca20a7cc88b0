@@ -1,0 +1,14 @@
+package kr.or.connect.guestbook.service.impl;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import kr.or.connect.guestbook.config.ApplicationConfig;
+
+public class GuestbookServiceTest 
+{
+	public static void main(String[] args) 
+	{
+		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+	}
+}

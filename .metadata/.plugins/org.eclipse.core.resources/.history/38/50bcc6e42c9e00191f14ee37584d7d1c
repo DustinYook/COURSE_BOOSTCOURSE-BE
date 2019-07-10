@@ -1,0 +1,19 @@
+package kr.or.connect.daoexam.dao;
+
+public class RoleDaoSqls // 쿼리문을 가지고 있는 객체
+{
+	// 상수는 모두 대문자로 쓰는 것이 관례, 두 단어 이상인 경우 언더바로 구분
+	// :description 부분이 값으로 바인딩될 부분 (?과 동일) - 파라미터로 가져온 값으로 바인딩
+	
+	/** SELECT_ALL */
+	public static final String SELECT_ALL = "SELECT role_id, description FROM role ORDER BY role_id";
+	
+	/** UPDATE */
+	public static final String UPDATE = "UPDATE role SET description = :description WHERE role_id = :roleId";
+	
+	/** SELECT_BY_ROLE_ID */
+	public static final String SELECT_BY_ROLE_ID = "SELECT role_id, description FROM role WHERE role_id = :roleId";
+	
+	/** DELETE_BY_ROLE_ID */
+	public static final String DELETE_BY_ROLE_ID = "DELETE FROM role WHERE role_id = :roleId";
+}

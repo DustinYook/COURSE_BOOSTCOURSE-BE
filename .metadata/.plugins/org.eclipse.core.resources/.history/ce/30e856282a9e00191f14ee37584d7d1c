@@ -1,0 +1,9 @@
+package kr.or.connect.daoexam.dao;
+
+public class RoleDaoSqls // 쿼리문을 가지고 있는 객체
+{
+	// 상수는 모두 대문자로 쓰는 것이 관례, 두 단어 이상인 경우 언더바로 구분
+	public static final String SELECT_ALL = "SELECT role_id, description FROM role ORDER BY role_id";
+	public static final String UPDATE = "UPDATE role SET description = :description WHERE role_id = :roleId";
+	// :description 부분이 값으로 바인딩될 부분 (?과 동일)
+}

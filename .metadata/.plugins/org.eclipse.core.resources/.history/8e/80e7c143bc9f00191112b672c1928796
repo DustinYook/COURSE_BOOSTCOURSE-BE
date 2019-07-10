@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 
+	2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd" > -->
+
+<web-app>
+	<display-name>Spring JavaConfig Sample</display-name>
+	
+	<!-- ======================================================================================================= -->
+	
+	<!-- context-param : ContextLoaderListener가 실행될 때 참고 -->
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>kr.or.connect.guestbook.config.ApplicationConfig</param-value>
+	</context-param>
+	
+	<!-- 비즈니스 로직에서 사용되는 설정파일 DBConfig와 ApplicationConfig를 읽어들이기 위해 사용 -->
+	<listener>
+		<!-- ContextLoaderListener : 서버가 실행되며 Context가 로딩되는 이벤트 발생 시 이 클래스를 읽어서 수행하라는 의미 -->
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- ======================================================================================================= -->
+
+	<!-- DispatcherServlet을 FrontController로 설정 -->
+	<servlet>
+		<servlet-name>mvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- ApplicationContext 설정 -->
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+		</init-param>
+		<!-- DispatcherServlet이 읽을 설정파일을 지정 -->
+		<init-param> 
+			<param-name>contextConfigLocation</param-name>
+			<param-value>kr.or.connect.guestbook.config.WebMvcContextConfiguration</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!-- DispatcherServlet을 FrontController로 설정 -->
+	<servlet-mapping>
+		<servlet-name>mvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>

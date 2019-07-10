@@ -1,0 +1,13 @@
+package kr.or.connect.mvcexam.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller // 컨트롤러임을 알려줌
+public class PlusController 
+{
+	// 요청이 plusform과 plus로 2개 존재 -> 각각을 위한 메소드 필요
+	
+	@GetMapping(path = "/plusform") // 스프링 버전 4.3부터 사용가능
+	
+}

@@ -1,0 +1,5 @@
+package kr.or.connect.daoexam.config;
+
+public class DBConfig {
+
+}

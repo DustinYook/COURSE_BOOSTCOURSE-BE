@@ -1,0 +1,47 @@
+package kr.or.connect.guestbook.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.or.connect.guestbook.dao.GuestbookDao;
+import kr.or.connect.guestbook.dao.LogDao;
+import kr.or.connect.guestbook.dto.Guestbook;
+import kr.or.connect.guestbook.service.GuestbookService;
+
+@Service
+public class GuestbookServiceImpl implements GuestbookService
+{
+	@Autowired
+	GuestbookDao guestbookDao;
+	
+	@Autowired
+	LogDao logDao;
+	
+	// guestbook 목록 가져옴
+	@Override
+	public List<Guestbook> getGuestbooks(Integer start) 
+	{	
+		guestbookDao.selectAll(start, GuestbookService.LIMIT); // 첫 번째 인자 : 시작, 두 번째 인자 : 몇 개 
+		return null;
+	}
+
+	@Override
+	public int deleteGuestbook(Long id, String ip) 
+	{
+		return 0;
+	}
+
+	@Override
+	public Guestbook addGuestbook(Guestbook guestbook, String ip) 
+	{
+		return null;
+	}
+
+	@Override
+	public int getCount() 
+	{
+		return 0;
+	}
+}

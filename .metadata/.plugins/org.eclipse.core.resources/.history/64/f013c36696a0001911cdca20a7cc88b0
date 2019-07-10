@@ -1,0 +1,6 @@
+package kr.or.connect.guestbook.service;
+
+public interface GuestbookService 
+{
+	
+}

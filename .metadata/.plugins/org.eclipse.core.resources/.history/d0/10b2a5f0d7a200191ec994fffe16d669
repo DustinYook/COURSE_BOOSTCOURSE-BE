@@ -1,0 +1,15 @@
+package kr.or.connect.guestbook.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class GuestbookAdminController 
+{
+	@GetMapping(path = "/loginform")
+	public String loginform()
+	{
+		// 요청이 들어오면 해당 view에 대한 정보를 넘겨줌
+		return "loginform";
+	}
+}
