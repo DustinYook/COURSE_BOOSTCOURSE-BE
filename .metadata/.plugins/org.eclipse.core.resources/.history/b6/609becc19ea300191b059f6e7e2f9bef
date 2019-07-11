@@ -1,0 +1,15 @@
+// 헤더의 정보를 담아줄 클래스 
+package kr.or.connect.guestbook.argumentresolver;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class HeaderInfo 
+{
+	private Map<String, String> map;
+	
+	public HeaderInfo()
+	{
+		map = new HashMap<String, String>();
+	}
+}

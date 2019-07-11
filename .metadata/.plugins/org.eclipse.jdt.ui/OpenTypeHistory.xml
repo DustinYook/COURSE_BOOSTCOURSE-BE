@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
 <typeInfo handle="=guestbook/C:\/Users\/aomor\/.m2\/repository\/org\/springframework\/spring-tx\/4.3.5.RELEASE\/spring-tx-4.3.5.RELEASE.jar&lt;org.springframework.transaction.annotation(TransactionManagementConfigurer.class[TransactionManagementConfigurer" modifiers="1537" timestamp="1562217921103"/>
+<typeInfo handle="=guestbook/C:\/Users\/aomor\/.m2\/repository\/org\/springframework\/spring-web\/4.3.5.RELEASE\/spring-web-4.3.5.RELEASE.jar&lt;org.springframework.web.method.support(HandlerMethodArgumentResolver.class[HandlerMethodArgumentResolver" modifiers="1537" timestamp="1562307113346"/>
 </typeInfoHistroy>

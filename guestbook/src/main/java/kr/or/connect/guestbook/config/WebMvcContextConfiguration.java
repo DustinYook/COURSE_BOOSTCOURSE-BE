@@ -1,15 +1,26 @@
 /** DispatcherServlet이 읽어들일 설정파일 */
 package kr.or.connect.guestbook.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.MethodParameter;
+import org.springframework.web.bind.support.WebDataBinderFactory;
+import org.springframework.web.context.request.NativeWebRequest;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import kr.or.connect.guestbook.argumentresolver.HandlerMapArgumentResolver;
+import kr.or.connect.guestbook.intercepter.LogInterceptor;
 
 @Configuration // 설정파일
 @EnableWebMvc // 웹 필요 Bean 자동설정
@@ -50,5 +61,20 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter
         resolver.setPrefix("/WEB-INF/views/"); // prefix 지정
         resolver.setSuffix(".jsp"); // suffix 지정
         return resolver;  // '/WEB-INF/views/뷰 이름.jsp'로 변환한 결과를 리턴
+    }
+    
+    /** 인터셉터를 설정파일에 등록 */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) 
+    {
+    	registry.addInterceptor(new LogInterceptor()); // 인자로 작성한 인터셉터를 넣어주면 됨
+    }
+    
+    /** 아규먼트 리졸버를 설정파일에 등록 */
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) 
+    {
+    	System.out.println("아규먼트 리졸버 등록..");
+    	argumentResolvers.add(new HandlerMapArgumentResolver()); // 등록
     }
 }

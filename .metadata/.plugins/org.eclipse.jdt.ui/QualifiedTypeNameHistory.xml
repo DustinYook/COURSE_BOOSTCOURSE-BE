@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="kr.or.connect.daoexam.dao.RoleDaoSqls"/>
-<fullyQualifiedTypeName name="org.springframework.jdbc.core.simple.SimpleJdbcInsert"/>
-<fullyQualifiedTypeName name="org.springframework.jdbc.core.namedparam.SqlParameterSource"/>
-<fullyQualifiedTypeName name="org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource"/>
-<fullyQualifiedTypeName name="kr.or.connect.daoexam.config.ApplicationConfig"/>
 <fullyQualifiedTypeName name="kr.or.connect.daoexam.dao.RoleDao"/>
 <fullyQualifiedTypeName name="kr.or.connect.daoexam.dto.Role"/>
 <fullyQualifiedTypeName name="org.springframework.dao.EmptyResultDataAccessException"/>
@@ -39,14 +34,12 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="kr.or.connect.guestbook.dto.Guestbook"/>
 <fullyQualifiedTypeName name="kr.or.connect.guestbook.service.GuestbookService"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
@@ -60,4 +53,11 @@
 <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="kr.or.connect.guestbook.intercepter.LogInterceptor"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="org.springframework.web.method.support.HandlerMethodArgumentResolver"/>
+<fullyQualifiedTypeName name="kr.or.connect.guestbook.argumentresolver.HandlerMapArgumentResolver"/>
+<fullyQualifiedTypeName name="kr.or.connect.guestbook.argumentresolver.HeaderInfo"/>
 </qualifiedTypeNameHistroy>

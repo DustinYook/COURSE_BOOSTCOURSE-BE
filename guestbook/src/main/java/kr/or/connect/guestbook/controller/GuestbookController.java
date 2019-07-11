@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.or.connect.guestbook.argumentresolver.HeaderInfo;
 import kr.or.connect.guestbook.dto.Guestbook;
 import kr.or.connect.guestbook.service.GuestbookService;
 
@@ -28,8 +29,14 @@ public class GuestbookController
 	
 	@GetMapping(path="/list") // '/list'로 GET요청이 들어올 때 처리 (@RequestParam으로 start의 값을 꺼내옴, 없으면 0을 디폴트값 설정)
 	public String list(@RequestParam(name="start", required=false, defaultValue="0") int start, ModelMap model, 
-			HttpServletRequest request, HttpServletResponse response) 
-	{
+			HttpServletRequest request, HttpServletResponse response,
+			HeaderInfo headerInfo /** 아규먼트 리졸버는 해당 인자가 넘어왔을때만 동작하므로 인자를 넘겨줌 */ ) {
+		
+		/* 아규먼트 리졸버 동작확인 */
+		System.out.println("=========================================");
+		System.out.println(headerInfo.get("user-agent"));
+		System.out.println("=========================================");
+		
 		String value = null;
 		boolean find = false;
 		Cookie[] cookies = request.getCookies(); // 쿠키를 가져옴 (여러 개 있을 때 배열, 없을 때 null)
