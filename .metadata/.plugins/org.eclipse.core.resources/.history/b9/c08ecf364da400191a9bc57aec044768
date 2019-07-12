@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds"> <!-- 루트 엘리먼트 -->
+
+	<!-- Appender -->
+	<!-- 어디다 어떤 포멧으로 로그를 남길 건지를 정할 방법을 제공 -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{HH:mm} %-5level %logger{36} - %msg%n</Pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/tmp/access.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>/tmp/access-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>%d{HH:mm} %-5level %logger{36} - %msg%n</Pattern>
+		</encoder>
+	</appender>
+	
+	<!-- Logger -->
+	<!-- 어떤 패키지 이하 클래스에서 어떤 레벨 이상의 로그를 출력할지를 결정 -->
+	<logger name="org.springframework" level="info" />
+	<logger name="kr.or.connect" level="debug" />
+
+	<!-- Root -->
+	<root level="debug">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

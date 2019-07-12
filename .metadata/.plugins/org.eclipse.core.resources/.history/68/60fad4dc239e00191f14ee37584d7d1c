@@ -1,9 +1,0 @@
-package kr.or.connect.daoexam.dao;
-
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class RoleDao 
-{
-	
-}
