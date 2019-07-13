@@ -1,0 +1,22 @@
+package kr.or.connect.guestbook.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.or.connect.guestbook.dao.FileInfoDao;
+import kr.or.connect.guestbook.dto.FileInfo;
+import kr.or.connect.guestbook.service.FileService;
+
+@Service // 서비스로 등록
+public class FileServiceImpl implements FileService // 서비스 인터페이스 구현
+{
+	@Autowired
+	FileInfoDao fileInfoDao; // DAO를 사용하기 위함
+	
+	@Override
+	public FileInfo addFileInfo(FileInfo fileInfo) 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

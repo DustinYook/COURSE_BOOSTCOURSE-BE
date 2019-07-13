@@ -22,7 +22,6 @@ public class GuestbookServiceImpl implements GuestbookService
 	@Autowired
 	LogDao logDao; // DAO를 사용하기 위함
 	
-	
 	@Override
 	@Transactional // 읽기만 하는 메소드에 붙임 : 내부적으로 readOnly로 Connection을 사용
 	public List<Guestbook> getGuestbooks(Integer start) // guestbook 목록 가져옴

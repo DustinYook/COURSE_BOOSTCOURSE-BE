@@ -1,0 +1,6 @@
+
+7월 13, 2019 17:07:52.77 NEW SESSION
+7월 13, 2019 17:07:52.77 [14220:1724:0713/170752.769:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 13, 2019 17:07:52.82 [14220:3564:0713/170752.821:ERROR:browser_process_sub_thread.cc(221)] Waited 20 ms for network service
+7월 13, 2019 17:42:09.62 [2904:8120:0713/174209.625:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 13, 2019 17:42:09.73 [2904:5560:0713/174209.733:ERROR:browser_process_sub_thread.cc(221)] Waited 39 ms for network service

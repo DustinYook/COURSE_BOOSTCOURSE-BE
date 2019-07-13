@@ -1,0 +1,9 @@
+package kr.or.connect.guestbook.service;
+
+import kr.or.connect.guestbook.dto.FileInfo;
+
+public interface FileService 
+{
+	public FileInfo addFileInfo()
+
+}

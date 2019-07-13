@@ -1,0 +1,17 @@
+package kr.or.connect.guestbook.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.connect.guestbook.dto.FileInfo;
+import kr.or.connect.guestbook.service.FileService;
+
+@Service
+public class FileServiceImpl implements FileService
+{
+	@Override
+	public FileInfo addFileInfo(FileInfo fileInfo) 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

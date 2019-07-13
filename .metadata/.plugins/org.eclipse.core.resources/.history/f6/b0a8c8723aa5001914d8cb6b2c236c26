@@ -1,0 +1,117 @@
+package kr.or.connect.guestbook.controller;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import kr.or.connect.guestbook.dto.FileInfo;
+import kr.or.connect.guestbook.dto.Guestbook;
+import kr.or.connect.guestbook.service.FileService;
+
+@Controller
+public class FileController 
+{
+	@Autowired
+	FileService fileService; // 서비스 사용하기 위함
+	
+	@GetMapping("/files")
+	public String files()
+	{
+		List<FileInfo> list = fileService.getFileInfos();
+		return "files";
+	}
+	
+	@GetMapping("/uploadform")
+	public String uploadform()
+	{
+		return "uploadform"; // 파일 업로드 폼만 보여줌
+	}
+	
+	// 실제 파일업로드 요청이 들어왔을 때 처리되는 부분
+	@PostMapping("/upload")
+	public String upload(@RequestParam("file") MultipartFile file, ModelMap model)
+	{
+		// System.out.println("파일이름: " + file.getOriginalFilename());
+		// System.out.println("파일크기: " + file.getSize());
+		
+		/* 얻어온 정보들은 DB에 저장 */
+		FileInfo fileInfo = new FileInfo();
+		fileInfo.setFileId(1L);
+		fileInfo.setFileName(file.getOriginalFilename());
+		fileInfo.setSaveName("c:/tmp/" + file.getOriginalFilename());
+		fileInfo.setContentType(file.getContentType());
+		fileInfo.setFileLength(file.getSize());
+		
+		FileInfo result = fileService.addFileInfo(fileInfo);
+		System.out.println(result);
+		
+		try( FileOutputStream fos = new FileOutputStream("C:/tmp/" + file.getOriginalFilename()); 
+		     // 저장위치 지정 (파일이름 중복을 막기위해 현재시간을 파일이름에 append하는 방법을 고려해볼 수도 있음)
+			InputStream is = file.getInputStream();){
+			int readCount = 0;
+			byte[] buffer = new byte[1024];
+			while((readCount = is.read(buffer)) != -1)
+				fos.write(buffer, 0, readCount);
+		}
+		catch (Exception ex) 
+		{
+			throw new RuntimeException("file save error!");
+		}
+		
+		return "uploadok"; // 업로드 성공시 uploadok뷰로 이동시킴
+	}
+	
+	// 실제 파일 다운로드 요청이 들어왔을 때 처리되는 부분
+	@GetMapping("/download")
+	public void download(HttpServletResponse response)
+	{
+		// 직접 파일 정보를 변수에 저장해 놨지만, 이 부분은 실제로 DB에서 읽어와야 한다
+		// (DB에 파일이 업로드 될 때 저장되도록 처리해야 함)
+		/**=================================================*/
+		// 컨트롤러에서 저장된 파일을 찾을 수 있는 정보(ID 등)를 받은 후에
+		// DB에서 다운로드할 파일정보를 읽어들이는 처리를 수행해야 한다.
+		// String fileName = "connect.png";
+		// String saveFileName = "c:/tmp/connect.png";
+		// String contentType = "image/png";
+		// int fileLength = 1116303;
+		/**=================================================*/
+		
+		List<FileInfo> list = fileService.getFileInfos();
+		for(FileInfo fileInfo : list)
+		{
+			
+		}
+		
+		// 앞에서 읽어들인 파일정보는 response의 setHeader()메소드를 이용해서 파일에 대한 정보를 지정
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\";"); // 파일명
+		response.setHeader("Content-Transfer-Encoding", "binary");
+		response.setHeader("Content-Type", contentType); // 파일타입
+		response.setHeader("Content-Length", "" + fileLength); // 파일길이
+		response.setHeader("Pragma", "no-cache;"); // 브라우저가 캐시를 읽지 못하도록 설정
+		response.setHeader("Expires", "-1");
+		
+		 try(FileInputStream fis = new FileInputStream(saveFileName);
+	         OutputStream out = response.getOutputStream();){
+			 int readCount = 0;
+			 byte[] buffer = new byte[1024];
+			 while((readCount = fis.read(buffer)) != -1)
+				 out.write(buffer,0,readCount);
+	     }
+		 catch(Exception ex)
+		 {
+			 throw new RuntimeException("file Save Error");
+	     }
+	}
+}

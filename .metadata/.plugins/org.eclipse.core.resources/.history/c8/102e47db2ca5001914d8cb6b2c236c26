@@ -1,0 +1,12 @@
+package kr.or.connect.guestbook.dto;
+
+public class FileInfo 
+{
+	private Long fileId;
+	private String fileName;
+	private String saveFileName;
+	private String contentType = "image/png";
+	private int fileLength;
+	
+	
+}

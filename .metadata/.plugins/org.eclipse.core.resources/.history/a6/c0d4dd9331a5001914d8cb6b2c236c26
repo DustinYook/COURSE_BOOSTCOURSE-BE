@@ -1,0 +1,14 @@
+package kr.or.connect.guestbook.service.impl;
+
+import kr.or.connect.guestbook.dto.FileInfo;
+import kr.or.connect.guestbook.service.FileService;
+
+public class FileServiceImpl implements FileService
+{
+	@Override
+	public FileInfo addFileInfo(FileInfo fileInfo) 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

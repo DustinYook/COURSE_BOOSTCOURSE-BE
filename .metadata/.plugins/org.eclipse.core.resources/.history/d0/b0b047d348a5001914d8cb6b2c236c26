@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> <!-- JSTL사용 위한 처리 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h1>파일 다운로드</h1><br>
+		
+		<!-- list의 내용을 꺼내서 출력하는 코드 -->
+		<ul>
+			<c:forEach items="${list}" var="fileInfo">
+				<li>
+					<a href="download?fileId=${fileInfo.fileId}">${fileInfo.fileName}</a>
+				</li>
+			</c:forEach>
+		</ul>
+		<br><br>
+		
+		<a href="uploadform">업로드 하러가기</a>&nbsp;&nbsp;<a href="list">홈으로</a>
+	</body>
+</html>

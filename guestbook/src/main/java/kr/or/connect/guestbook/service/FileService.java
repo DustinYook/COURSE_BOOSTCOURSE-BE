@@ -1,0 +1,12 @@
+package kr.or.connect.guestbook.service;
+
+import java.util.List;
+
+import kr.or.connect.guestbook.dto.FileInfo;
+
+public interface FileService 
+{
+	public FileInfo addFileInfo(FileInfo fileInfo);
+	public List<FileInfo> getFileInfos();
+	public FileInfo getFileInfo(Long fileId);
+}

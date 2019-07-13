@@ -1,0 +1,11 @@
+package kr.or.connect.guestbook.service;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.connect.guestbook.dto.FileInfo;
+
+@Service
+public interface FileService 
+{
+	public FileInfo addFileInfo(FileInfo fileInfo);
+}

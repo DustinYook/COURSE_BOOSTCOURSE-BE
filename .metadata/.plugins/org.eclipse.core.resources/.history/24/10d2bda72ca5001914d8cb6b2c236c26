@@ -1,0 +1,6 @@
+package kr.or.connect.guestbook.dto;
+
+public class FileInfo 
+{
+	private Long file_id;
+}

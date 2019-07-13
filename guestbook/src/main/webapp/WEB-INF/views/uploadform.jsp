@@ -10,7 +10,7 @@
 		<br><br>
 		<form method="post" action="upload" enctype="multipart/form-data">
 		<!-- 반드시 POST방식, enctype에는 multipart/form-data로 지정! -->
-			file : <input type="file" name="file"><br> <!-- type과 name은 반드시 file -->
+			<input type="file" name="file"><br> <!-- type과 name은 반드시 file -->
 			<input type="submit">
 		</form>
 	</body>

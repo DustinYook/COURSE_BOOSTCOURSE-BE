@@ -1,0 +1,8 @@
+package kr.or.connect.guestbook.service.impl;
+
+import kr.or.connect.guestbook.service.FileService;
+
+public class FileServiceImpl implements FileService
+{
+
+}
