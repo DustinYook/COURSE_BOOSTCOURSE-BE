@@ -1,9 +1,0 @@
-package kr.or.connect.mvcexam.controller;
-
-import org.springframework.stereotype.Controller;
-
-@Controller // 컨트롤러임을 알려줌
-public class PlusController 
-{
-	
-}

@@ -25,7 +25,8 @@
 			${guestbook.regdate}<br>
 			<!-- 세션을 이용한 처리 -->
 			<c:if test="${sessionScope.isAdmin == 'true'}">
-				<a href="delete?id=${guestbook.id}">삭제</a><br><br>
+				<a href="delete?id=${guestbook.id}">삭제</a>
+				<a href="download">다운로드</a><br><br>
 				<!-- <a>태그는 GET방식으로 요청을 보냄 -->
 			</c:if>
 		</c:forEach><br>
